@@ -2,6 +2,9 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
@@ -52,6 +55,11 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.2.0'
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    testImplementation 'org.mockito:mockito-core:2.19.0'
+
+    //for testing schedulers and rule task executor
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+
 }
 repositories {
     mavenCentral()
